@@ -21,8 +21,18 @@ def add_expenses(name, amount):
     spent = expenses[name]
     return budgeted - spent 
 
-print(add_budget("Groceries", 500))
+def summary():
+    print("Budget          Budgeted     Spent   Remaining")
+    print("-------         --------     -----   ---------")
+    for name in budget:
+        budgeted = budget[name]
+        spent = expenses[name]
+        remaining = budgeted - spent
+        print(f"{name:13s} {budgeted:10.2f} {spent:10.2f} {remaining:10.2f}")
+
+print(add_budget("Rent", 900))
+print(add_budget("Groceries", 450))
+print(add_expenses("Rent", 830))
 print(add_expenses("Groceries", 400))
-
-
+print(summary()) 
 
